@@ -1,6 +1,7 @@
 package Util;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args){
@@ -28,5 +29,20 @@ public class Main {
 
         Arrays.sort(datas);
         System.out.println(Arrays.toString(datas));
+
+        String [] names = {"리치히","에베레스트", "폭설", "카카오"};
+        System.out.println(Arrays.toString(names));
+        //복사본 만들기
+        String [] copy = Arrays.copyOf(names, names.length);
+        Arrays.sort(copy);
+        System.out.println(Arrays.toString(copy));
+
+        Arrays.sort(copy, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        System.out.println(Arrays.toString(copy));
     }
 }
